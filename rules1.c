@@ -6,41 +6,41 @@
 /*   By: txisto-d <txisto-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 14:11:10 by txisto-d          #+#    #+#             */
-/*   Updated: 2023/11/20 17:57:10 by txisto-d         ###   ########.fr       */
+/*   Updated: 2023/12/18 17:46:22 by txisto-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "./ft_printf/libft/libft.h"
 
-void	ft_sa(t_stack **stack_a, t_list **lista)
+void	ft_sa(t_stack **stack_a, t_list *list)
 {
 	ft_swap(stack_a);
-	if (*lista)
+	if (list)
 	{
-		lista->next = ft_lstnew("sa");
-		lista = lista->next;
+		list->next = ft_lstnew("sa\0");
+		list = list->next;
 	}
 	else
-		lista = ft_lstnew("sa");
-	return (lista);
+		list = ft_lstnew("sa\0");
 }
 
-void	ft_pa(t_stack **stack_a, t_stack **stack_b, t_list *lista)
+/*
+void	ft_pa(t_stack **stack_a, t_stack **stack_b, t_list *list)
 {
 	ft_push(stack_a, stack_b);
 }
 
-void	ft_ra(t_stack **stack_a, t_list *lista)
+void	ft_ra(t_stack **stack_a, t_list *list)
 {
 	ft_rotate(stack_a);
 }
 
-void	ft_rra(t_stack **stack_a, t_list *lista)
+void	ft_rra(t_stack **stack_a, t_list *list)
 {
 	ft_reverse_rotate(stack_a);
 }
-
+*/
 #include <stdio.h>
 
 int	main(void)
@@ -55,7 +55,7 @@ int	main(void)
 	t_stack	node6;
 	t_stack	node7;
 	t_stack *temp_b;
-	t_list	lista;
+	t_list	*commands;
 
 	node0 = (t_stack){.prev = NULL, .next = &node1,.content = 1};
 	node1 = (t_stack){.prev = &node0, .next = &node2, .content = 3};
@@ -67,7 +67,8 @@ int	main(void)
 	node7 = (t_stack){.prev = &node6, .next = NULL, .content = -8};
 	temp_a = &node0;
 	temp_b = &node4;
-	lista = NULL;
+	commands = NULL;
+
 	while (temp_a->next)
 	{
 		printf("%d\n",temp_a->content);
@@ -84,9 +85,7 @@ int	main(void)
 	temp_a = &node0;
 	temp_b = &node4;
 
-
-	ft_ss(&temp_a, &temp_b);
-
+	ft_sa(&temp_a, commands);
 
 	while (temp_a->next)
 	{
