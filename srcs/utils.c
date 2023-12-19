@@ -6,7 +6,7 @@
 /*   By: txisto-d <txisto-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 20:19:40 by txisto-d          #+#    #+#             */
-/*   Updated: 2023/12/19 20:55:39 by txisto-d         ###   ########.fr       */
+/*   Updated: 2023/12/19 21:54:12 by txisto-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,20 +38,46 @@ int	ft_argcheck(char *arg)
 	return (1);
 }
 
-t_stack	*ft_newstack(char *value, t_stack *value_n1)
+t_stack	*ft_newstack(char *value, t_stack **value_n1)
 {
 	t_stack	*newstack;
-
+	t_stack	*temp;
+	
+	temp = *value_n1;
+	if (ft_atol(value) > INT_MAX || ft_atol(value) < INT_MIN)
+	{
+		ft_cleanstack(value_n1);
+		exit(1);
+	}
 	newstack = (t_stack *) ft_calloc(1, sizeof(t_stack));
 	if (!newstack)
-		exit(1);
-	newstack->content = ft_atoi(value);
-	if (value_n1)
 	{
-		while (value_n1->next)
-			value_n1 = value_n1->next;
-		value_n1->next = newstack;
+		ft_cleanstack(value_n1);
+		exit(1);
 	}
-	newstack->prev = value_n1;
+	newstack->content = ft_atol(value);
+	if (temp)
+	{
+		while ((temp)->next)
+			(temp) = (temp)->next;
+		(temp)->next = newstack;
+	}
+	newstack->prev = temp;
 	newstack->next = NULL;
+	return (newstack);
+}
+
+void	ft_cleanstack(t_stack **stack)
+{
+	t_stack	*nextnode;
+
+	if (stack)
+	{
+		while (*stack)
+		{
+			nextnode = (*stack)->next;
+			free(*stack);
+			*stack = nextnode;
+		}
+	}
 }

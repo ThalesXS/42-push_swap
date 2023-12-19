@@ -7,7 +7,7 @@ OBJ_DIR = objects
 # ============================ {Files      } ============================
 
 NAME = a.out
-FILES = push_swap.c	rules0.c rules1.c rules2.c rules3.c
+FILES = push_swap.c utils.c	rules0.c rules1.c rules2.c rules3.c
 OBJ = $(FILES:.c=.o)
 ARQ = push_swap.a
 TARGET = $(addprefix $(OBJ_DIR)/, $(OBJ))
