@@ -6,16 +6,16 @@
 /*   By: txisto-d <txisto-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 21:03:49 by txisto-d          #+#    #+#             */
-/*   Updated: 2023/12/19 21:04:12 by txisto-d         ###   ########.fr       */
+/*   Updated: 2023/12/19 21:07:18 by txisto-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atol(const char *nptr)
+long long	ft_atol(const char *nptr)
 {
-	int			ans;
-	long long	negative;
+	long long	ans;
+	int			negative;
 
 	ans = 0;
 	negative = 1;
