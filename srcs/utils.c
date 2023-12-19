@@ -6,7 +6,7 @@
 /*   By: txisto-d <txisto-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 20:19:40 by txisto-d          #+#    #+#             */
-/*   Updated: 2023/12/19 21:54:12 by txisto-d         ###   ########.fr       */
+/*   Updated: 2023/12/19 22:08:56 by txisto-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,4 +80,23 @@ void	ft_cleanstack(t_stack **stack)
 			*stack = nextnode;
 		}
 	}
+}
+
+int	ft_sorted(t_stack **stack)
+{
+	t_stack *temp;
+
+	temp = *stack;
+	while (temp->next)
+	{
+		if (temp->content > temp->next->content)
+			return (0);
+		temp = temp->next;
+	}
+	return (1);
+}
+
+int	ft_repeated(t_stack **stack)
+{
+	
 }

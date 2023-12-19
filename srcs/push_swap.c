@@ -6,7 +6,7 @@
 /*   By: txisto-d <txisto-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 20:03:00 by txisto-d          #+#    #+#             */
-/*   Updated: 2023/12/19 21:54:31 by txisto-d         ###   ########.fr       */
+/*   Updated: 2023/12/19 22:08:40 by txisto-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,16 +30,17 @@ int	main(int argc, char **argv)
 				ft_newstack(argv[i], &stack_a);
 			i++;
 		}
-		//ft_sort(&stack_a);
+		ft_sort(&stack_a);
 		ft_cleanstack(&stack_a);
 	}
 	else if (!ft_stackcheck(argc, argv))
 		ft_putstr_fd("Error\n", 2);
 	return (0);
 }
-/*
+
 void	ft_sort(t_stack **stack_a)
 {
-
+	//t_stack	*stack_b;
+	if (ft_sorted(stack_a) || ft_repeated())
+		exit(0);
 }
-*/
