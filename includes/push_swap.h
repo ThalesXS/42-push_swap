@@ -6,7 +6,7 @@
 /*   By: txisto-d <txisto-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 14:05:39 by txisto-d          #+#    #+#             */
-/*   Updated: 2023/12/19 19:54:38 by txisto-d         ###   ########.fr       */
+/*   Updated: 2023/12/19 21:00:07 by txisto-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,8 @@ void	ft_rrb(t_stack **stack_b);
 void	ft_ss(t_stack **stack_a, t_stack **stack_b);
 void	ft_rr(t_stack **stack_a, t_stack **stack_b);
 void	ft_rrr(t_stack **stack_a, t_stack **stack_b);
+int 	ft_stackcheck(int argc, char **argv);
+int		ft_argcheck(char *arg);
+t_stack	*ft_newstack(char *value, t_stack *value_n1);
+void	ft_sort(t_stack *stack_a);
 #endif
