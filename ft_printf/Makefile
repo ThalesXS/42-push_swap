@@ -9,7 +9,7 @@ CCW = gcc -Wall -Wextra -Werror
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	make bonus -C libft
+	make bonus --no-print-directory -C libft
 	cp libft/libft.a $(NAME)
 	ar rc $(NAME) $(OBJ)
 

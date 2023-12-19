@@ -1,21 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: txisto-d <txisto-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/03 19:44:10 by txisto-d          #+#    #+#             */
-/*   Updated: 2023/10/09 14:55:17 by txisto-d         ###   ########.fr       */
+/*   Created: 2023/10/12 05:12:47 by txisto-d          #+#    #+#             */
+/*   Updated: 2023/10/16 19:48:41 by txisto-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
+#ifndef FT_PRINTF_H
 
-# define LIBFT_H
+# define FT_PRINTF_H
+# include <stdarg.h>
 # include <stdlib.h>
 # include <limits.h>
 # include <unistd.h>
+# include <stdio.h>
 
 int		ft_atoi(const char *nptr);
 void	ft_bzero(void *s, size_t n);
@@ -68,5 +70,44 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 t_list	*ft_lstlast(t_list *lst);
 t_list	*ft_lstnew(void *content);
 int		ft_lstsize(t_list *lst);
+//printf
+
+typedef struct s_arg
+{
+	int		width;
+	int		minus;
+	int		precision;
+	int		zero;
+	int		plus;
+	int		space;
+	int		hash;
+	int		dot;
+	int		specifier;
+}			t_arg;
+
+typedef struct s_string
+{
+	size_t	len;
+}			t_string;
+
+int		ft_printf(const char *format, ...);
+void	ft_print_c(t_arg *arg, t_string *string, va_list lst);
+void	ft_print_d(t_arg *arg, t_string *string, va_list lst);
+void	ft_print_p(t_arg *arg, t_string *string, va_list lst);
+void	ft_print_s(t_arg *arg, t_string *string, va_list lst);
+void	ft_print_u(t_arg *arg, t_string *string, va_list lst);
+void	ft_print_x(t_arg *arg, t_string *string, va_list lst);
+void	ft_print_xx(t_arg *arg, t_string *string, va_list lst);
+int		ft_converter(const char *format, va_list lst, t_string *string);
+int		ft_printlen(const char *str);
+int		ft_flaglen(const char *str);
+void	ft_printchar(char c, t_string *string);
+void	ft_printstr(const char *s, t_string *string);
+void	ft_printstr_ltda(const char *s, t_string *string);
+char	*ft_ptoa(unsigned long n);
+char	*ft_utoa(unsigned int n);
+char	*ft_xtoa(unsigned int n);
+char	*ft_xxtoa(unsigned int n);
+int		ft_specif(char specifier, char *flags, va_list lst, t_string *string);
 
 #endif
