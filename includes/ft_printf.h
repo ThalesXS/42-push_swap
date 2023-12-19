@@ -6,7 +6,7 @@
 /*   By: txisto-d <txisto-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 05:12:47 by txisto-d          #+#    #+#             */
-/*   Updated: 2023/10/16 19:48:41 by txisto-d         ###   ########.fr       */
+/*   Updated: 2023/12/19 21:04:39 by txisto-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include <stdio.h>
 
 int		ft_atoi(const char *nptr);
+int		ft_atol(const char *nptr);
 void	ft_bzero(void *s, size_t n);
 void	*ft_calloc(size_t nmemb, size_t size);
 int		ft_isalnum(int c);

@@ -55,6 +55,7 @@ clean:
 
 fclean: clean
 	make fclean -C ft_printf
+	rm -f libps.a
 	rm -f $(NAME)
 
 
