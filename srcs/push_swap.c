@@ -6,7 +6,7 @@
 /*   By: txisto-d <txisto-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 20:03:00 by txisto-d          #+#    #+#             */
-/*   Updated: 2023/12/19 22:08:40 by txisto-d         ###   ########.fr       */
+/*   Updated: 2023/12/20 21:24:30 by txisto-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,23 @@ int	main(int argc, char **argv)
 
 void	ft_sort(t_stack **stack_a)
 {
-	//t_stack	*stack_b;
-	if (ft_sorted(stack_a) || ft_repeated())
-		exit(0);
+	t_stack	*stack_b;
+	int		size;
+
+	stack_b = NULL;
+	while (stack_b)
+	{
+		ft_printf("%d\n",stack_b->content);
+		stack_b = stack_b->next;
+	}
+	size = ft_stacksize(stack_a);
+	ft_repeated(stack_a);
+	ft_sorted(stack_a);
+	ft_dest(stack_a);
+	if (size == 2)
+		ft_twostack(stack_a);
+	else if (size == 3)
+		ft_threestack(stack_a);
+	else
+		ft_biggerstack(stack_a, &stack_b);
 }

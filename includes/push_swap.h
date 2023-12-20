@@ -6,7 +6,7 @@
 /*   By: txisto-d <txisto-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 14:05:39 by txisto-d          #+#    #+#             */
-/*   Updated: 2023/12/19 22:09:12 by txisto-d         ###   ########.fr       */
+/*   Updated: 2023/12/20 21:26:15 by txisto-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ typedef struct	s_stack
 	int				content;
 	struct s_stack	*prev;
 	struct s_stack	*next;
+	int				actual;
+	int				dest;
 }	t_stack;
 
 
@@ -39,8 +41,16 @@ void	ft_rrr(t_stack **stack_a, t_stack **stack_b);
 int 	ft_stackcheck(int argc, char **argv);
 int		ft_argcheck(char *arg);
 t_stack	*ft_newstack(char *value, t_stack **value_n1);
-void	ft_cleanstack(t_stack **stack);
+int		ft_cleanstack(t_stack **stack);
 void	ft_sort(t_stack **stack_a);
-int		ft_sorted(t_stack **stack);
-int		ft_repeated(t_stack **stack);
+void	ft_sorted(t_stack **stack);
+void	ft_repeated(t_stack **stack);
+void	ft_error(t_stack **stack);
+int		ft_stacksize(t_stack **stack);
+void	ft_dest(t_stack **stack);
+void	ft_twostack(t_stack **stack_a);
+void	ft_threestack(t_stack **stack_a);
+void	ft_biggerstack(t_stack **stack_a, t_stack **stack_b);
+void	ft_sort_b(t_stack **stack_a, t_stack **stack_b);
+
 #endif
