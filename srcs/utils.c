@@ -6,7 +6,7 @@
 /*   By: txisto-d <txisto-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 20:19:40 by txisto-d          #+#    #+#             */
-/*   Updated: 2023/12/20 21:47:00 by txisto-d         ###   ########.fr       */
+/*   Updated: 2023/12/20 22:03:29 by txisto-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -200,14 +200,14 @@ void	ft_sort_b(t_stack **stack_a, t_stack **stack_b)
 	ft_printf("\nB\n");
 	while (aux)
 	{
-		ft_printf("%d\n", aux->content);
+		ft_printf("%d: dest = %d\n", aux->content, aux->dest);
 		aux = aux->next;
 	}
 	aux = *stack_a;
 	ft_printf("\nA\n");
 	while (aux)
 	{
-		ft_printf("%d\n", aux->content);
+		ft_printf("%d: dest = %d\n", aux->content, aux->dest);
 		aux = aux->next;
 	}
 }
